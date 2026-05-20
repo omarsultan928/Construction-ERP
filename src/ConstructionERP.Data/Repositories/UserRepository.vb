@@ -1,5 +1,6 @@
 Imports System.Data.SqlClient
 Imports System.Collections.Generic
+Imports ConstructionERP.Core
 Imports ConstructionERP.Data.Helpers
 
 Public Class UserRepository

@@ -1,7 +1,6 @@
 Imports System.Configuration
-Imports ConstructionERP.Core.Interfaces
-Imports ConstructionERP.Core.Services
-Imports ConstructionERP.Data.Repositories
+Imports ConstructionERP.Core
+Imports ConstructionERP.Data
 
 Public Class LoginForm
     Implements ILoginView
