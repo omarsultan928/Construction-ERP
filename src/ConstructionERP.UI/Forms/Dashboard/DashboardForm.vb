@@ -1,15 +1,36 @@
 Imports ConstructionERP.Core
+Imports ConstructionERP.Data
 
 Public Class DashboardForm
+
+    Private ReadOnly _dashRepo As New DashboardRepository()
+
     Private Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblWelcome.Text = $"Welcome, {SessionManager.CurrentUser.FullName}!"
+        LoadWidgets()
     End Sub
 
-    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        SessionManager.CurrentUser = Nothing
-        Dim loginForm As New LoginForm()
-        loginForm.Show()
-        Me.Close()
+    Private Sub LoadWidgets()
+        Try
+            Dim summary = _dashRepo.GetSummary()
+
+            lblActiveProjectsValue.Text = summary.ActiveProjects.ToString()
+            lblTotalExpensesValue.Text = FormatCurrency(summary.TotalExpenses)
+            lblOutstandingInvValue.Text = FormatCurrency(summary.OutstandingInvoices)
+
+            If summary.ProfitLoss >= 0 Then
+                lblProfitLossValue.Text = FormatCurrency(summary.ProfitLoss)
+                pnlProfitLoss.BackColor = System.Drawing.Color.FromArgb(39, 119, 63)
+            Else
+                lblProfitLossValue.Text = "(" & FormatCurrency(Math.Abs(summary.ProfitLoss)) & ")"
+                pnlProfitLoss.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
+            End If
+        Catch ex As Exception
+            ' Leave widget values as default if data load fails
+        End Try
     End Sub
+
+    Private Function FormatCurrency(value As Decimal) As String
+        Return "$" & value.ToString("N0")
+    End Function
 
 End Class

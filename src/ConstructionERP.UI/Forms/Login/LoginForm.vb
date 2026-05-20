@@ -36,8 +36,8 @@ Public Class LoginForm
     End Sub
 
     Public Sub NavigateToDashboard() Implements ILoginView.NavigateToDashboard
-        Dim dashboard As New DashboardForm()
-        dashboard.Show()
+        Dim shell As New MainShellForm()
+        shell.Show()
         Me.Hide()
     End Sub
 

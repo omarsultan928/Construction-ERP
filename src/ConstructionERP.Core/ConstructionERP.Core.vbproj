@@ -71,9 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\User.vb" />
+    <Compile Include="Models\DashboardSummary.vb" />
     <Compile Include="Interfaces\ILoginView.vb" />
     <Compile Include="Interfaces\IUserRepository.vb" />
     <Compile Include="Services\LoginPresenter.vb" />
+    <Compile Include="Helpers\RoleHelper.vb" />
     <Compile Include="Helpers\SessionManager.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
