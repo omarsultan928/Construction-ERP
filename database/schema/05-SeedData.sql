@@ -20,9 +20,9 @@ GO
 
 INSERT INTO dbo.[User] (Email, Password, FirstName, LastName, Role, IsActive)
 VALUES 
-    ('admin@constructionerp.com', '8BE3C3696DF75B0E0A3E5F3D9C8F7A6B5D4E3C2A1F0E9D8C7B6A5F4E3D2C1B0A', 'Admin', 'User', 'Admin', 1),
-    ('accountant@constructionerp.com', '8BE3C3696DF75B0E0A3E5F3D9C8F7A6B5D4E3C2A1F0E9D8C7B6A5F4E3D2C1B0A', 'John', 'Smith', 'Accountant', 1),
-    ('pm@constructionerp.com', '8BE3C3696DF75B0E0A3E5F3D9C8F7A6B5D4E3C2A1F0E9D8C7B6A5F4E3D2C1B0A', 'Sarah', 'Johnson', 'ProjectManager', 1);
+    ('admin@constructionerp.com', '008c70392e3abfbd0fa47bbc2ed96aa99bd49e159727fcba0f2e6abeb3a9d601', 'Admin', 'User', 'Admin', 1),
+    ('accountant@constructionerp.com', '008c70392e3abfbd0fa47bbc2ed96aa99bd49e159727fcba0f2e6abeb3a9d601', 'John', 'Smith', 'Accountant', 1),
+    ('pm@constructionerp.com', '008c70392e3abfbd0fa47bbc2ed96aa99bd49e159727fcba0f2e6abeb3a9d601', 'Sarah', 'Johnson', 'ProjectManager', 1);
 GO
 
 -- =============================================

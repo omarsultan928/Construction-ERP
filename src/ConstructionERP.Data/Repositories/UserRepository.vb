@@ -21,8 +21,8 @@ Public Class UserRepository
             Dim row As DataRow = dataTable.Rows(0)
             Dim user As New User With {
                 .UserID = Convert.ToInt32(row("UserID")),
-                .email = row("Email").ToString(),
-                .password = row("Password").ToString(),
+                .Email = row("Email").ToString(),
+                .Password = row("Password").ToString().Trim(),
                 .FirstName = row("FirstName").ToString(),
                 .LastName = row("LastName").ToString(),
                 .Role = row("Role").ToString(),
@@ -32,7 +32,7 @@ Public Class UserRepository
             }
 
             ' Verify password using SHA256 hash
-            If user.Password = PasswordHelper.HashPassword(password) Then
+            If PasswordHelper.VerifyPassword(password, user.Password) Then
                 Return user
             End If
         End If
