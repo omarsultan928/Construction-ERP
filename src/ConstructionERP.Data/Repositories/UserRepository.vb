@@ -73,7 +73,6 @@ Public Class UserRepository
             users.Add(New User With {
                 .UserID = Convert.ToInt32(row("UserID")),
                 .Email = row("Email").ToString(),
-                .Password = row("Password").ToString(),
                 .FirstName = row("FirstName").ToString(),
                 .LastName = row("LastName").ToString(),
                 .Role = row("Role").ToString(),

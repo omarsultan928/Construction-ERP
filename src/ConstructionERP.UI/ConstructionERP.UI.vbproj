@@ -51,6 +51,27 @@
     <Reference Include="log4net, Version=3.3.1.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.3.3.1\lib\net462\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraGrid.v25.2">
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.XtraGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v25.2">
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.XtraEditors.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v25.2">
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.Data.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v25.2">
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.Utils.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v25.2">
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.Drawing.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v25.2.Core">
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.Printing.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v25.2">
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.Data.Desktop.v25.2.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -99,6 +120,20 @@
     </Compile>
     <Compile Include="Forms\Dashboard\DashboardForm.Designer.vb">
       <DependentUpon>DashboardForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\UserListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\UserListForm.Designer.vb">
+      <DependentUpon>UserListForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\UserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\UserForm.Designer.vb">
+      <DependentUpon>UserForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\Application.vb" />

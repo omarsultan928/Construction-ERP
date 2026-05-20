@@ -105,7 +105,13 @@ Public Class MainShellForm
     End Sub
 
     Private Sub btnNavUsers_Click(sender As Object, e As EventArgs) Handles btnNavUsers.Click
-        MessageBox.Show("User Management coming in Phase 2.", "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        For Each child As Form In Me.MdiChildren
+            If TypeOf child Is UserListForm Then
+                child.Activate()
+                Return
+            End If
+        Next
+        ShowChildForm(New UserListForm())
     End Sub
 
 End Class
