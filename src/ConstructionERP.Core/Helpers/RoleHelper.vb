@@ -23,6 +23,14 @@ Public Class RoleHelper
         Return role = Admin OrElse role = Accountant
     End Function
 
+    Public Shared Function CanViewExpenses(role As String) As Boolean
+        Return role = Admin OrElse role = Accountant OrElse role = ProjectManager
+    End Function
+
+    Public Shared Function CanViewExpenseSummary(role As String) As Boolean
+        Return role = Admin OrElse role = Accountant OrElse role = ProjectManager
+    End Function
+
     Public Shared Function CanViewReports(role As String) As Boolean
         Return role = Admin OrElse role = Accountant OrElse role = ProjectManager
     End Function

@@ -12,7 +12,14 @@ Public Class ProjectDetailForm
     End Sub
 
     Private Sub ProjectDetailForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ApplyRoleVisibility()
         LoadSummary()
+    End Sub
+
+    Private Sub ApplyRoleVisibility()
+        Dim role = SessionManager.CurrentUser.Role
+        btnViewExpenses.Visible = RoleHelper.CanViewExpenses(role)
+        btnExpenseSummary.Visible = RoleHelper.CanViewExpenseSummary(role)
     End Sub
 
     Private Sub LoadSummary()
@@ -57,6 +64,19 @@ Public Class ProjectDetailForm
     Private Function FormatCurrency(value As Decimal) As String
         Return "$" & value.ToString("N0")
     End Function
+
+    Private Sub btnViewExpenses_Click(sender As Object, e As EventArgs) Handles btnViewExpenses.Click
+        Using frm As New ExpenseListForm(_projectId)
+            frm.ShowDialog(Me)
+        End Using
+        LoadSummary()
+    End Sub
+
+    Private Sub btnExpenseSummary_Click(sender As Object, e As EventArgs) Handles btnExpenseSummary.Click
+        Using frm As New ExpenseSummaryForm(_projectId)
+            frm.ShowDialog(Me)
+        End Using
+    End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()

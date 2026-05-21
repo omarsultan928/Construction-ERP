@@ -170,6 +170,27 @@
       <DependentUpon>ProjectDetailForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Expense\ExpenseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Expense\ExpenseForm.Designer.vb">
+      <DependentUpon>ExpenseForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Expense\ExpenseListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Expense\ExpenseListForm.Designer.vb">
+      <DependentUpon>ExpenseListForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Expense\ExpenseSummaryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Expense\ExpenseSummaryForm.Designer.vb">
+      <DependentUpon>ExpenseSummaryForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Application.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
