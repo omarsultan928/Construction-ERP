@@ -18,6 +18,7 @@ Partial Class DashboardForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlHeader = New System.Windows.Forms.Panel()
+        Me.btnCreateProject = New System.Windows.Forms.Button()
         Me.lblDashTitle = New System.Windows.Forms.Label()
         Me.lblSubtitle = New System.Windows.Forms.Label()
 
@@ -50,12 +51,27 @@ Partial Class DashboardForm
 
         ' pnlHeader
         Me.pnlHeader.BackColor = System.Drawing.Color.White
+        Me.pnlHeader.Controls.Add(Me.btnCreateProject)
         Me.pnlHeader.Controls.Add(Me.lblSubtitle)
         Me.pnlHeader.Controls.Add(Me.lblDashTitle)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHeader.Height = 64
         Me.pnlHeader.Name = "pnlHeader"
         Me.pnlHeader.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
+
+        ' btnCreateProject
+        Me.btnCreateProject.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCreateProject.BackColor = System.Drawing.Color.FromArgb(39, 119, 63)
+        Me.btnCreateProject.FlatAppearance.BorderSize = 0
+        Me.btnCreateProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCreateProject.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnCreateProject.ForeColor = System.Drawing.Color.White
+        Me.btnCreateProject.Location = New System.Drawing.Point(560, 16)
+        Me.btnCreateProject.Name = "btnCreateProject"
+        Me.btnCreateProject.Size = New System.Drawing.Size(150, 32)
+        Me.btnCreateProject.Text = "+ Create New Project"
+        Me.btnCreateProject.UseVisualStyleBackColor = False
+        Me.btnCreateProject.Visible = False
 
         ' lblDashTitle
         Me.lblDashTitle.AutoSize = True
@@ -219,6 +235,7 @@ Partial Class DashboardForm
     End Sub
 
     Friend WithEvents pnlHeader As System.Windows.Forms.Panel
+    Friend WithEvents btnCreateProject As System.Windows.Forms.Button
     Friend WithEvents lblDashTitle As System.Windows.Forms.Label
     Friend WithEvents lblSubtitle As System.Windows.Forms.Label
 

@@ -6,6 +6,15 @@ Public Class DashboardForm
     Private ReadOnly _dashRepo As New DashboardRepository()
 
     Private Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim user = SessionManager.CurrentUser
+        btnCreateProject.Visible = user IsNot Nothing AndAlso user.Role = RoleHelper.ProjectManager
+        LoadWidgets()
+    End Sub
+
+    Private Sub btnCreateProject_Click(sender As Object, e As EventArgs) Handles btnCreateProject.Click
+        Using frm As New ProjectForm()
+            frm.ShowDialog(Me)
+        End Using
         LoadWidgets()
     End Sub
 

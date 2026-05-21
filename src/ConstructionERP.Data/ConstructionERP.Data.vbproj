@@ -70,6 +70,7 @@
     <Compile Include="Helpers\PasswordHelper.vb" />
     <Compile Include="Repositories\DashboardRepository.vb" />
     <Compile Include="Repositories\UserRepository.vb" />
+    <Compile Include="Repositories\ProjectRepository.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup>

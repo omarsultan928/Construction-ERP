@@ -7,11 +7,11 @@ Public Class PasswordHelper
             Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
             Dim hash As Byte() = sha256.ComputeHash(bytes)
             Dim stringBuilder As New StringBuilder()
-            
+
             For Each b As Byte In hash
                 stringBuilder.Append(b.ToString("x2"))
             Next
-            
+
             Return stringBuilder.ToString()
         End Using
     End Function

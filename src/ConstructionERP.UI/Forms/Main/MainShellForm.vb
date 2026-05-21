@@ -85,7 +85,13 @@ Public Class MainShellForm
     End Sub
 
     Private Sub btnNavProjects_Click(sender As Object, e As EventArgs) Handles btnNavProjects.Click
-        MessageBox.Show("Projects module coming in Phase 3.", "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        For Each child As Form In Me.MdiChildren
+            If TypeOf child Is ProjectListForm Then
+                child.Activate()
+                Return
+            End If
+        Next
+        ShowChildForm(New ProjectListForm())
     End Sub
 
     Private Sub btnNavExpenses_Click(sender As Object, e As EventArgs) Handles btnNavExpenses.Click
