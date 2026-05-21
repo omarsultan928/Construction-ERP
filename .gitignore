@@ -155,3 +155,5 @@ mono_crash.*
 
 # Windows shortcuts
 *.lnk
+
+CLAUDE.md
