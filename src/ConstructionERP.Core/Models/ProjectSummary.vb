@@ -11,4 +11,5 @@ Public Class ProjectSummary
     Public Property RemainingBudget As Decimal
     Public Property TotalInvoices As Decimal
     Public Property EstimatedProfit As Decimal
+    Public Property BudgetStatus As String
 End Class

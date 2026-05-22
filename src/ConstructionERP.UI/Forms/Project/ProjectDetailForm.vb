@@ -4,7 +4,7 @@ Imports ConstructionERP.Data
 Public Class ProjectDetailForm
 
     Private ReadOnly _projectId As Integer
-    Private ReadOnly _projectRepo As New ProjectRepository()
+    Private ReadOnly _projectRepo As IProjectRepository = New ProjectRepository()
 
     Public Sub New(projectId As Integer)
         _projectId = projectId
@@ -42,19 +42,34 @@ Public Class ProjectDetailForm
             lblRemainingBudgetValue.Text = FormatCurrency(summary.RemainingBudget)
             lblInvoiceTotalsValue.Text = FormatCurrency(summary.TotalInvoices)
 
+            ' BudgetStatus badge
+            lblBudgetStatus.Text = summary.BudgetStatus
+            Select Case summary.BudgetStatus
+                Case "Over Budget"
+                    lblBudgetStatus.Appearance.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
+                Case "Under Budget"
+                    lblBudgetStatus.Appearance.BackColor = System.Drawing.Color.FromArgb(39, 119, 63)
+                Case Else
+                    lblBudgetStatus.Appearance.BackColor = System.Drawing.Color.FromArgb(100, 100, 100)
+            End Select
+            lblBudgetStatus.Appearance.Options.UseBackColor = True
+
             If summary.EstimatedProfit >= 0 Then
                 lblProfitLossValue.Text = FormatCurrency(summary.EstimatedProfit)
-                pnlProfitLoss.BackColor = System.Drawing.Color.FromArgb(39, 119, 63)
+                pnlProfitLoss.Appearance.BackColor = System.Drawing.Color.FromArgb(39, 119, 63)
             Else
                 lblProfitLossValue.Text = "(" & FormatCurrency(Math.Abs(summary.EstimatedProfit)) & ")"
-                pnlProfitLoss.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
+                pnlProfitLoss.Appearance.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
             End If
+            pnlProfitLoss.Appearance.Options.UseBackColor = True
 
             If summary.RemainingBudget < 0 Then
-                pnlRemainingBudget.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
+                pnlRemainingBudget.Appearance.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
             Else
-                pnlRemainingBudget.BackColor = System.Drawing.Color.FromArgb(21, 101, 192)
+                pnlRemainingBudget.Appearance.BackColor = System.Drawing.Color.FromArgb(21, 101, 192)
             End If
+            pnlRemainingBudget.Appearance.Options.UseBackColor = True
+
         Catch ex As Exception
             lblError.Text = "Failed to load project summary: " & ex.Message
             lblError.Visible = True

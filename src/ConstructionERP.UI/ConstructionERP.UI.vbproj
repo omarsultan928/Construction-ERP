@@ -170,6 +170,20 @@
       <DependentUpon>ProjectDetailForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Project\BudgetVsActualForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project\BudgetVsActualForm.Designer.vb">
+      <DependentUpon>BudgetVsActualForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project\ProjectProfitabilityForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project\ProjectProfitabilityForm.Designer.vb">
+      <DependentUpon>ProjectProfitabilityForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Expense\ExpenseForm.vb">
       <SubType>Form</SubType>
     </Compile>

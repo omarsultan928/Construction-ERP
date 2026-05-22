@@ -18,6 +18,8 @@ Public Class ProjectListForm
         cboSort.SelectedIndex = 0
 
         btnNewProject.Visible = RoleHelper.CanManageProjects(SessionManager.CurrentUser.Role)
+        btnBudgetAnalysis.Visible = RoleHelper.CanViewReports(SessionManager.CurrentUser.Role)
+        btnProfitability.Visible = RoleHelper.CanViewReports(SessionManager.CurrentUser.Role)
         LoadProjects()
     End Sub
 
@@ -131,6 +133,18 @@ Public Class ProjectListForm
         End If
 
         Using frm As New ProjectDetailForm(projectId.Value)
+            frm.ShowDialog(Me)
+        End Using
+    End Sub
+
+    Private Sub btnProfitability_Click(sender As Object, e As EventArgs) Handles btnProfitability.Click
+        Using frm As New ProjectProfitabilityForm()
+            frm.ShowDialog(Me)
+        End Using
+    End Sub
+
+    Private Sub btnBudgetAnalysis_Click(sender As Object, e As EventArgs) Handles btnBudgetAnalysis.Click
+        Using frm As New BudgetVsActualForm()
             frm.ShowDialog(Me)
         End Using
     End Sub

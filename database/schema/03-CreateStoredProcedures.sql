@@ -752,5 +752,42 @@ BEGIN
 END
 GO
 
+-- =============================================
+-- Project Profitability Stored Procedure
+-- =============================================
+
+-- sp_Project_GetProfitability
+IF OBJECT_ID('dbo.sp_Project_GetProfitability', 'P') IS NOT NULL
+    DROP PROCEDURE dbo.sp_Project_GetProfitability;
+GO
+
+CREATE PROCEDURE dbo.sp_Project_GetProfitability
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        ProjectID,
+        ProjectCode,
+        ProjectName,
+        ClientName,
+        Status,
+        TotalExpenses,
+        TotalInvoices                                               AS InvoiceAmount,
+        TotalInvoices - TotalExpenses                               AS EstimatedProfit,
+        CASE
+            WHEN TotalInvoices - TotalExpenses > 0 THEN 'Profit'
+            WHEN TotalInvoices - TotalExpenses < 0 THEN 'Loss'
+            ELSE 'Break Even'
+        END                                                         AS ProfitStatus,
+        CASE
+            WHEN TotalInvoices = 0 THEN 0
+            ELSE ROUND((TotalInvoices - TotalExpenses) * 100.0 / TotalInvoices, 1)
+        END                                                         AS ProfitMarginPct
+    FROM dbo.vw_ProjectSummary
+    ORDER BY EstimatedProfit DESC;
+END
+GO
+
 PRINT 'All stored procedures created successfully.';
 GO

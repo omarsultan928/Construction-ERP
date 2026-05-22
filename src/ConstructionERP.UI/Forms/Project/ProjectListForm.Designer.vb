@@ -38,6 +38,8 @@ Partial Class ProjectListForm
         Me.colStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.pnlBottom = New System.Windows.Forms.Panel()
         Me.btnViewDetails = New System.Windows.Forms.Button()
+        Me.btnBudgetAnalysis = New System.Windows.Forms.Button()
+        Me.btnProfitability = New System.Windows.Forms.Button()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.lblRecordCount = New System.Windows.Forms.Label()
         Me.pnlFilter.SuspendLayout()
@@ -255,6 +257,8 @@ Partial Class ProjectListForm
         Me.pnlBottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.pnlBottom.Controls.Add(Me.lblRecordCount)
         Me.pnlBottom.Controls.Add(Me.lblStatus)
+        Me.pnlBottom.Controls.Add(Me.btnProfitability)
+        Me.pnlBottom.Controls.Add(Me.btnBudgetAnalysis)
         Me.pnlBottom.Controls.Add(Me.btnViewDetails)
         Me.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlBottom.Location = New System.Drawing.Point(0, 472)
@@ -274,11 +278,39 @@ Partial Class ProjectListForm
         Me.btnViewDetails.TabIndex = 0
         Me.btnViewDetails.Text = "View Details"
         '
+        'btnBudgetAnalysis
+        '
+        Me.btnBudgetAnalysis.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnBudgetAnalysis.FlatAppearance.BorderSize = 0
+        Me.btnBudgetAnalysis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBudgetAnalysis.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnBudgetAnalysis.ForeColor = System.Drawing.Color.White
+        Me.btnBudgetAnalysis.Location = New System.Drawing.Point(130, 11)
+        Me.btnBudgetAnalysis.Name = "btnBudgetAnalysis"
+        Me.btnBudgetAnalysis.Size = New System.Drawing.Size(140, 26)
+        Me.btnBudgetAnalysis.TabIndex = 3
+        Me.btnBudgetAnalysis.Text = "Budget vs Actual"
+        Me.btnBudgetAnalysis.UseVisualStyleBackColor = False
+        '
+        'btnProfitability
+        '
+        Me.btnProfitability.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnProfitability.FlatAppearance.BorderSize = 0
+        Me.btnProfitability.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProfitability.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnProfitability.ForeColor = System.Drawing.Color.White
+        Me.btnProfitability.Location = New System.Drawing.Point(280, 11)
+        Me.btnProfitability.Name = "btnProfitability"
+        Me.btnProfitability.Size = New System.Drawing.Size(120, 26)
+        Me.btnProfitability.TabIndex = 4
+        Me.btnProfitability.Text = "Profitability"
+        Me.btnProfitability.UseVisualStyleBackColor = False
+        '
         'lblStatus
         '
         Me.lblStatus.AutoSize = True
         Me.lblStatus.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.lblStatus.Location = New System.Drawing.Point(135, 16)
+        Me.lblStatus.Location = New System.Drawing.Point(415, 16)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 15)
         Me.lblStatus.TabIndex = 1
@@ -336,6 +368,8 @@ Partial Class ProjectListForm
     Friend WithEvents colStatus As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents pnlBottom As System.Windows.Forms.Panel
     Friend WithEvents btnViewDetails As System.Windows.Forms.Button
+    Friend WithEvents btnBudgetAnalysis As System.Windows.Forms.Button
+    Friend WithEvents btnProfitability As System.Windows.Forms.Button
     Friend WithEvents lblStatus As System.Windows.Forms.Label
     Friend WithEvents lblRecordCount As System.Windows.Forms.Label
 End Class

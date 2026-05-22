@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\User.vb" />
+    <Compile Include="Models\BudgetVsActualRow.vb" />
+    <Compile Include="Models\ProfitabilityRow.vb" />
     <Compile Include="Models\DashboardSummary.vb" />
     <Compile Include="Models\Project.vb" />
     <Compile Include="Models\ProjectSummary.vb" />

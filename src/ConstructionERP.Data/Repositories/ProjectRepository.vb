@@ -45,7 +45,7 @@ Public Class ProjectRepository
 
         Dim dataTable As DataTable = DatabaseHelper.ExecuteQuery(
             "SELECT ProjectID, ProjectCode, ProjectName, ClientName, Budget, StartDate, EndDate, Status, " &
-            "TotalExpenses, RemainingBudget, TotalInvoices, EstimatedProfit " &
+            "TotalExpenses, RemainingBudget, TotalInvoices, EstimatedProfit, BudgetStatus " &
             "FROM dbo.vw_ProjectSummary WHERE ProjectID = @ProjectID",
             parameters)
 
@@ -66,7 +66,8 @@ Public Class ProjectRepository
             .TotalExpenses = Convert.ToDecimal(row("TotalExpenses")),
             .RemainingBudget = Convert.ToDecimal(row("RemainingBudget")),
             .TotalInvoices = Convert.ToDecimal(row("TotalInvoices")),
-            .EstimatedProfit = Convert.ToDecimal(row("EstimatedProfit"))
+            .EstimatedProfit = Convert.ToDecimal(row("EstimatedProfit")),
+            .BudgetStatus = row("BudgetStatus").ToString()
         }
     End Function
 
@@ -94,6 +95,43 @@ Public Class ProjectRepository
             .CreatedDate = Convert.ToDateTime(row("CreatedDate")),
             .UpdatedDate = Convert.ToDateTime(row("UpdatedDate"))
         }
+    End Function
+
+    Public Function GetBudgetVsActual() As List(Of BudgetVsActualRow) Implements IProjectRepository.GetBudgetVsActual
+        Dim results As New List(Of BudgetVsActualRow)()
+        Dim dataTable As DataTable = DatabaseHelper.ExecuteStoredProcedure("sp_Report_BudgetVsActual")
+        For Each row As DataRow In dataTable.Rows
+            results.Add(New BudgetVsActualRow With {
+                .ProjectID = Convert.ToInt32(row("ProjectID")),
+                .ProjectCode = row("ProjectCode").ToString(),
+                .ProjectName = row("ProjectName").ToString(),
+                .BudgetAmount = Convert.ToDecimal(row("BudgetAmount")),
+                .ActualAmount = Convert.ToDecimal(row("ActualAmount")),
+                .Variance = Convert.ToDecimal(row("Variance")),
+                .BudgetStatus = row("BudgetStatus").ToString()
+            })
+        Next
+        Return results
+    End Function
+
+    Public Function GetProfitability() As List(Of ProfitabilityRow) Implements IProjectRepository.GetProfitability
+        Dim results As New List(Of ProfitabilityRow)()
+        Dim dataTable As DataTable = DatabaseHelper.ExecuteStoredProcedure("sp_Project_GetProfitability")
+        For Each row As DataRow In dataTable.Rows
+            results.Add(New ProfitabilityRow With {
+                .ProjectID = Convert.ToInt32(row("ProjectID")),
+                .ProjectCode = row("ProjectCode").ToString(),
+                .ProjectName = row("ProjectName").ToString(),
+                .ClientName = row("ClientName").ToString(),
+                .Status = row("Status").ToString(),
+                .TotalExpenses = Convert.ToDecimal(row("TotalExpenses")),
+                .InvoiceAmount = Convert.ToDecimal(row("InvoiceAmount")),
+                .EstimatedProfit = Convert.ToDecimal(row("EstimatedProfit")),
+                .ProfitStatus = row("ProfitStatus").ToString(),
+                .ProfitMarginPct = Convert.ToDecimal(row("ProfitMarginPct"))
+            })
+        Next
+        Return results
     End Function
 
     Public Function Insert(project As Project) As Integer Implements IProjectRepository.Insert
