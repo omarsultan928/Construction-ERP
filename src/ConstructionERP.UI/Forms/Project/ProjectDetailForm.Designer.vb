@@ -40,6 +40,8 @@ Partial Class ProjectDetailForm
         Me.lblProfitLossValue = New System.Windows.Forms.Label()
         Me.lblProfitLossSub = New System.Windows.Forms.Label()
         Me.lblError = New System.Windows.Forms.Label()
+        Me.btnViewExpenses = New System.Windows.Forms.Button()
+        Me.btnExpenseSummary = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.pnlHeader.SuspendLayout()
         Me.pnlTotalExpenses.SuspendLayout()
@@ -304,6 +306,36 @@ Partial Class ProjectDetailForm
         Me.lblError.TabIndex = 5
         Me.lblError.Visible = False
         '
+        'btnViewExpenses
+        '
+        Me.btnViewExpenses.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnViewExpenses.BackColor = System.Drawing.Color.FromArgb(191, 54, 12)
+        Me.btnViewExpenses.FlatAppearance.BorderSize = 0
+        Me.btnViewExpenses.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnViewExpenses.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnViewExpenses.ForeColor = System.Drawing.Color.White
+        Me.btnViewExpenses.Location = New System.Drawing.Point(30, 400)
+        Me.btnViewExpenses.Name = "btnViewExpenses"
+        Me.btnViewExpenses.Size = New System.Drawing.Size(130, 30)
+        Me.btnViewExpenses.TabIndex = 7
+        Me.btnViewExpenses.Text = "View Expenses"
+        Me.btnViewExpenses.UseVisualStyleBackColor = False
+        '
+        'btnExpenseSummary
+        '
+        Me.btnExpenseSummary.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnExpenseSummary.BackColor = System.Drawing.Color.FromArgb(21, 101, 192)
+        Me.btnExpenseSummary.FlatAppearance.BorderSize = 0
+        Me.btnExpenseSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExpenseSummary.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnExpenseSummary.ForeColor = System.Drawing.Color.White
+        Me.btnExpenseSummary.Location = New System.Drawing.Point(172, 400)
+        Me.btnExpenseSummary.Name = "btnExpenseSummary"
+        Me.btnExpenseSummary.Size = New System.Drawing.Size(140, 30)
+        Me.btnExpenseSummary.TabIndex = 8
+        Me.btnExpenseSummary.Text = "Expense Summary"
+        Me.btnExpenseSummary.UseVisualStyleBackColor = False
+        '
         'btnClose
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -323,6 +355,8 @@ Partial Class ProjectDetailForm
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(247, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(720, 450)
         Me.Controls.Add(Me.btnClose)
+        Me.Controls.Add(Me.btnExpenseSummary)
+        Me.Controls.Add(Me.btnViewExpenses)
         Me.Controls.Add(Me.lblError)
         Me.Controls.Add(Me.pnlProfitLoss)
         Me.Controls.Add(Me.pnlInvoiceTotals)
@@ -373,5 +407,7 @@ Partial Class ProjectDetailForm
     Friend WithEvents lblProfitLossValue As System.Windows.Forms.Label
     Friend WithEvents lblProfitLossSub As System.Windows.Forms.Label
     Friend WithEvents lblError As System.Windows.Forms.Label
+    Friend WithEvents btnViewExpenses As System.Windows.Forms.Button
+    Friend WithEvents btnExpenseSummary As System.Windows.Forms.Button
     Friend WithEvents btnClose As System.Windows.Forms.Button
 End Class

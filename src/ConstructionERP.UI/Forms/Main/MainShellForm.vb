@@ -95,7 +95,13 @@ Public Class MainShellForm
     End Sub
 
     Private Sub btnNavExpenses_Click(sender As Object, e As EventArgs) Handles btnNavExpenses.Click
-        MessageBox.Show("Expenses module coming in Phase 4.", "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        For Each child As Form In Me.MdiChildren
+            If TypeOf child Is ExpenseListForm Then
+                child.Activate()
+                Return
+            End If
+        Next
+        ShowChildForm(New ExpenseListForm())
     End Sub
 
     Private Sub btnNavVendors_Click(sender As Object, e As EventArgs) Handles btnNavVendors.Click

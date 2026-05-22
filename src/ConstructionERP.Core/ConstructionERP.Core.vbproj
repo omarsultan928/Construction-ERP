@@ -78,12 +78,15 @@
     <Compile Include="Models\VendorProjectAssignment.vb" />
     <Compile Include="Models\VendorPayment.vb" />
     <Compile Include="Models\Invoice.vb" />
+    <Compile Include="Models\Expense.vb" />
+    <Compile Include="Models\ExpenseCategorySummary.vb" />
     <Compile Include="Interfaces\ILoginView.vb" />
     <Compile Include="Interfaces\IUserRepository.vb" />
     <Compile Include="Interfaces\IUserManagementView.vb" />
     <Compile Include="Interfaces\IProjectRepository.vb" />
     <Compile Include="Interfaces\IVendorRepository.vb" />
     <Compile Include="Interfaces\IInvoiceRepository.vb" />
+    <Compile Include="Interfaces\IExpenseRepository.vb" />
     <Compile Include="Services\LoginPresenter.vb" />
     <Compile Include="Services\UserManagementPresenter.vb" />
     <Compile Include="Helpers\RoleHelper.vb" />
