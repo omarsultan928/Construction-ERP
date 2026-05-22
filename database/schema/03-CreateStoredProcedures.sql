@@ -726,5 +726,31 @@ BEGIN
 END
 GO
 
+-- =============================================
+-- Dashboard Stored Procedures
+-- =============================================
+
+-- sp_Dashboard_GetSummary
+IF OBJECT_ID('dbo.sp_Dashboard_GetSummary', 'P') IS NOT NULL
+    DROP PROCEDURE dbo.sp_Dashboard_GetSummary;
+GO
+
+CREATE PROCEDURE dbo.sp_Dashboard_GetSummary
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        (SELECT COUNT(*)
+         FROM dbo.Project
+         WHERE Status NOT IN ('Completed', 'Cancelled'))                          AS ActiveProjects,
+        ISNULL((SELECT SUM(Amount) FROM dbo.Expense), 0)                          AS TotalExpenses,
+        ISNULL((SELECT SUM(Amount) FROM dbo.Invoice
+                WHERE Status IN ('Sent', 'Overdue')), 0)                          AS OutstandingInvoices,
+        ISNULL((SELECT SUM(Amount) FROM dbo.Invoice WHERE Status = 'Paid'), 0) -
+        ISNULL((SELECT SUM(Amount) FROM dbo.Expense), 0)                          AS ProfitLoss;
+END
+GO
+
 PRINT 'All stored procedures created successfully.';
 GO

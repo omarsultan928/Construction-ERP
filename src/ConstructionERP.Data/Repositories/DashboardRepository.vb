@@ -1,19 +1,12 @@
 Imports ConstructionERP.Core
 
 Public Class DashboardRepository
+    Implements IDashboardRepository
 
-    Public Function GetSummary() As DashboardSummary
+    Public Function GetSummary() As DashboardSummary Implements IDashboardRepository.GetSummary
         Dim summary As New DashboardSummary()
         Try
-            Dim sql As String =
-                "SELECT " &
-                "(SELECT COUNT(*) FROM dbo.Project WHERE Status NOT IN ('Completed', 'Cancelled')) AS ActiveProjects, " &
-                "(SELECT ISNULL(SUM(Amount), 0) FROM dbo.Expense) AS TotalExpenses, " &
-                "(SELECT ISNULL(SUM(Amount), 0) FROM dbo.Invoice WHERE Status IN ('Sent', 'Overdue')) AS OutstandingInvoices, " &
-                "ISNULL((SELECT ISNULL(SUM(Amount), 0) FROM dbo.Invoice WHERE Status = 'Paid'), 0) - " &
-                "ISNULL((SELECT ISNULL(SUM(Amount), 0) FROM dbo.Expense), 0) AS ProfitLoss"
-
-            Dim dt = DatabaseHelper.ExecuteQuery(sql)
+            Dim dt = DatabaseHelper.ExecuteStoredProcedure("sp_Dashboard_GetSummary")
             If dt.Rows.Count > 0 Then
                 Dim row = dt.Rows(0)
                 summary.ActiveProjects = Convert.ToInt32(row("ActiveProjects"))

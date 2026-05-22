@@ -210,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\Dashboard\DashboardForm.resx" />
+    <EmbeddedResource Include="Forms\Expense\ExpenseForm.resx">
+      <DependentUpon>ExpenseForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

@@ -3,7 +3,7 @@ Imports ConstructionERP.Data
 
 Public Class DashboardForm
 
-    Private ReadOnly _dashRepo As New DashboardRepository()
+    Private ReadOnly _dashRepo As IDashboardRepository = New DashboardRepository()
 
     Private Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim user = SessionManager.CurrentUser
@@ -28,11 +28,12 @@ Public Class DashboardForm
 
             If summary.ProfitLoss >= 0 Then
                 lblProfitLossValue.Text = FormatCurrency(summary.ProfitLoss)
-                pnlProfitLoss.BackColor = System.Drawing.Color.FromArgb(39, 119, 63)
+                pnlProfitLoss.Appearance.BackColor = System.Drawing.Color.FromArgb(39, 119, 63)
             Else
                 lblProfitLossValue.Text = "(" & FormatCurrency(Math.Abs(summary.ProfitLoss)) & ")"
-                pnlProfitLoss.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
+                pnlProfitLoss.Appearance.BackColor = System.Drawing.Color.FromArgb(180, 40, 40)
             End If
+            pnlProfitLoss.Appearance.Options.UseBackColor = True
         Catch ex As Exception
             ' Leave widget values as default if data load fails
         End Try

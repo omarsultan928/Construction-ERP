@@ -76,6 +76,7 @@
     <Compile Include="Models\ProjectSummary.vb" />
     <Compile Include="Models\Expense.vb" />
     <Compile Include="Models\ExpenseCategorySummary.vb" />
+    <Compile Include="Interfaces\IDashboardRepository.vb" />
     <Compile Include="Interfaces\ILoginView.vb" />
     <Compile Include="Interfaces\IUserRepository.vb" />
     <Compile Include="Interfaces\IUserManagementView.vb" />
