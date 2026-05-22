@@ -109,7 +109,13 @@ Public Class MainShellForm
     End Sub
 
     Private Sub btnNavInvoices_Click(sender As Object, e As EventArgs) Handles btnNavInvoices.Click
-        MessageBox.Show("Invoices module coming in Phase 6.", "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        For Each child As Form In Me.MdiChildren
+            If TypeOf child Is InvoiceListForm Then
+                child.Activate()
+                Return
+            End If
+        Next
+        ShowChildForm(New InvoiceListForm())
     End Sub
 
     Private Sub btnNavReports_Click(sender As Object, e As EventArgs) Handles btnNavReports.Click

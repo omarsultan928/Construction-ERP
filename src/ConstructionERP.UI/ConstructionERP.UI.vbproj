@@ -205,6 +205,27 @@
       <DependentUpon>VendorPaymentListForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Invoices\InvoiceForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceForm.Designer.vb">
+      <DependentUpon>InvoiceForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceStatusForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceStatusForm.Designer.vb">
+      <DependentUpon>InvoiceStatusForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceListForm.Designer.vb">
+      <DependentUpon>InvoiceListForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Application.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
