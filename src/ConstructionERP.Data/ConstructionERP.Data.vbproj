@@ -71,6 +71,8 @@
     <Compile Include="Repositories\DashboardRepository.vb" />
     <Compile Include="Repositories\UserRepository.vb" />
     <Compile Include="Repositories\ProjectRepository.vb" />
+    <Compile Include="Repositories\VendorRepository.vb" />
+    <Compile Include="Repositories\InvoiceRepository.vb" />
     <Compile Include="Repositories\ExpenseRepository.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>

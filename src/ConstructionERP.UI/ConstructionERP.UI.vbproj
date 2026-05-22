@@ -170,6 +170,60 @@
       <DependentUpon>ProjectDetailForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Vendors\VendorForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorForm.Designer.vb">
+      <DependentUpon>VendorForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorListForm.Designer.vb">
+      <DependentUpon>VendorListForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorAssignForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorAssignForm.Designer.vb">
+      <DependentUpon>VendorAssignForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorPaymentForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorPaymentForm.Designer.vb">
+      <DependentUpon>VendorPaymentForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorPaymentListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendors\VendorPaymentListForm.Designer.vb">
+      <DependentUpon>VendorPaymentListForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceForm.Designer.vb">
+      <DependentUpon>InvoiceForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceStatusForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceStatusForm.Designer.vb">
+      <DependentUpon>InvoiceStatusForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceListForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Invoices\InvoiceListForm.Designer.vb">
+      <DependentUpon>InvoiceListForm.vb</DependentUpon>
     <Compile Include="Forms\Expense\ExpenseForm.vb">
       <SubType>Form</SubType>
     </Compile>

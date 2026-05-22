@@ -15,7 +15,19 @@ Public Class RoleHelper
         Return role = Admin OrElse role = Accountant
     End Function
 
+    Public Shared Function CanViewVendors(role As String) As Boolean
+        Return role = Admin OrElse role = Accountant OrElse role = ProjectManager
+    End Function
+
     Public Shared Function CanManageVendors(role As String) As Boolean
+        Return role = Admin OrElse role = Accountant
+    End Function
+
+    Public Shared Function CanAssignVendorsToProject(role As String) As Boolean
+        Return role = Admin OrElse role = ProjectManager
+    End Function
+
+    Public Shared Function CanTrackVendorPayments(role As String) As Boolean
         Return role = Admin OrElse role = Accountant
     End Function
 

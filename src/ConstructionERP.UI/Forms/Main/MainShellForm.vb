@@ -27,7 +27,7 @@ Public Class MainShellForm
     Private Sub ApplyRoleVisibility(role As String)
         btnNavUsers.Visible = RoleHelper.CanManageUsers(role)
         btnNavExpenses.Visible = RoleHelper.CanManageExpenses(role)
-        btnNavVendors.Visible = RoleHelper.CanManageVendors(role)
+        btnNavVendors.Visible = RoleHelper.CanViewVendors(role)
         btnNavInvoices.Visible = RoleHelper.CanManageInvoices(role)
         btnNavReports.Visible = RoleHelper.CanViewReports(role)
     End Sub
@@ -105,11 +105,23 @@ Public Class MainShellForm
     End Sub
 
     Private Sub btnNavVendors_Click(sender As Object, e As EventArgs) Handles btnNavVendors.Click
-        MessageBox.Show("Vendors module coming in Phase 5.", "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        For Each child As Form In Me.MdiChildren
+            If TypeOf child Is VendorListForm Then
+                child.Activate()
+                Return
+            End If
+        Next
+        ShowChildForm(New VendorListForm())
     End Sub
 
     Private Sub btnNavInvoices_Click(sender As Object, e As EventArgs) Handles btnNavInvoices.Click
-        MessageBox.Show("Invoices module coming in Phase 6.", "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        For Each child As Form In Me.MdiChildren
+            If TypeOf child Is InvoiceListForm Then
+                child.Activate()
+                Return
+            End If
+        Next
+        ShowChildForm(New InvoiceListForm())
     End Sub
 
     Private Sub btnNavReports_Click(sender As Object, e As EventArgs) Handles btnNavReports.Click
